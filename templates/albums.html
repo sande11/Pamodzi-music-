@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'PAMODZI.css' %}" rel="stylesheet" type="text/css">
+    <title>Pamodzi</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">PAMODZI</div>
+
+        <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+            <div class="menu">
+                <li><a href="{% url 'home'  %}">HOME</a></li>
+                <li><a href="{% url 'events'  %}">EVENTS</a></li>
+                <li><a href="{% url 'about' %}">ABOUT</a></li>
+                <li class="contact">
+                    <a href="/">CONTACT</a>
+                    <!-- DROPDOWN MENU -->
+                    <ul class="dropdown">
+                        <li><a href="/">EMAIL</a></li>
+                        <li><a href="/">FACEBOOK</a></li>
+                        <li><a href="/">INSTAGRAM</a></li>
+                        <li><a href="/">TWITTER</a></li>
+                    </ul>
+                </li>
+            </div>
+        </ul>
+    </nav>
+
+    {% for Albumlist in albumlists %}
+    <div class="container-2">
+        <div class="container-3">
+            <img src="{% static 'Assets/album art.jpg' %}" alt="album cover">
+            <div class="container-4">
+                <h1 class="title">Album:</h1>
+                <h1 class="sub">{{Albumlist.albumTitle}}</h1>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% for AlbumSongs in albumsongs %}
+    <div class="container-6">
+        <a href=""><img class="play-icon" src="{% static 'Assets/play-button-png-12808.png' %}" alt="download icon"></a>
+        <h1 class="title-1"> {{AlbumSongs.albumTrack}} </h1>
+        <span class="right">
+            <a href=" {{AlbumSongs.songs.url}} " download><img class="download-icon" src="{% static 'Assets/icons8-download-24.png' %}"></a>
+            <h1 class="duration"> {{AlbumSongs.trackDuration}} </h1>
+        </span>    
+    </div>
+    
+
+
+    {% endfor %}
+</body>
+</html>

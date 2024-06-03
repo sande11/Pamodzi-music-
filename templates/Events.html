@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'PAMODZI.css' %}" rel="stylesheet" type="text/css">
+    <title>Pamodzi</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">PAMODZI</div>
+
+        <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+            <div class="menu">
+                <li><a href="{% url 'home'  %}">HOME</a></li>
+                <li><a href="{% url 'events'  %}">EVENTS</a></li>
+                <li><a href="{% url 'about' %}">ABOUT</a></li>
+                <li class="contact">
+                    <a href="/">CONTACT</a>
+                    <!-- DROPDOWN MENU -->
+                    <ul class="dropdown">
+                        <li><a href="/">EMAIL</a></li>
+                        <li><a href="/">FACEBOOK</a></li>
+                        <li><a href="/">INSTAGRAM</a></li>
+                        <li><a href="/">TWITTER</a></li>
+                    </ul>
+                </li>
+            </div>
+        </ul>
+    </nav>
+
+    <!-- NEWS -->
+    <div class="container-1">
+        <h1 class="heading">News</h1>
+    </div>
+    <div class="">
+        <div class="">
+            <p>
+                
+            </p>
+        </div>
+    </div>
+</body>
+</html>

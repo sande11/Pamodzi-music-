@@ -1,0 +1,280 @@
+/* UTILITIES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background: url("Assets/Free\ Vector\ _\ Abstract\ realistic\ technology\ particle\ background.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+/* NAV BAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: rgb(43, 35, 35);
+  color: #fff;
+}
+
+.nav-links a {
+  color: #fff;
+}
+
+/* LOGO */
+.logo {
+  font-size: 50px;
+  font-weight: bolder;
+}
+
+/* NAVBAR MENU */
+.menu {
+  display: flex;
+  gap: 1em;
+  font-size: 18px;
+}
+
+.menu li:hover {
+  background-color: rgb(168, 155, 155);
+  border-radius: 5px;
+  transition: 0.3s ease;
+}
+
+.menu li {
+  padding: 5px 14px;
+}
+
+/* DROPDOWN MENU */
+.contact {
+  position: relative;
+}
+
+.dropdown {
+  background-color: rgb(43, 35, 35);
+  padding: 1em 0;
+  position: absolute;
+  /*WITH RESPECT TO PARENT*/
+  display: none;
+  border-radius: 8px;
+  top: 35px;
+}
+
+.dropdown li + li {
+  margin-top: 10px;
+}
+
+.dropdown li {
+  padding: 0.5em 1em;
+  width: 8em;
+  text-align: center;
+}
+
+.dropdown li:hover {
+  background-color: rgb(168, 155, 155);
+}
+
+.contact:hover .dropdown {
+  display: block;
+}
+
+/* RESPONSIVE NAVBAR MENU */
+/* CHECKBOX HACK */
+input[type=checkbox] {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  user-select: none;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    position: absolute;
+    background-color: rgb(43, 35, 35);
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding: 16px 0;
+  }
+
+  .menu li:hover {
+    display: inline-block;
+    background-color: rgb(43, 35, 35);
+    transition: 0.3 ease;
+  }
+
+  .menu li + li {
+    margin-top: 12px;
+  }
+
+  input[type=checkbox]:checked ~ .menu {
+    display: block;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .dropdown {
+    left: 50px;
+    top: 30px;
+    transform: translateX(35%);
+  }
+
+  .dropdown li:hover {
+    background-color: rgb(168, 155, 155);
+  }
+
+  /* BANNER */
+  .banner {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+    height: 14%;
+    position: relative;
+    left: 5%;
+  }
+
+  .banner-words {
+    padding-top: 15px;
+  }
+
+  .down-button {
+    font-size: 100px;
+    padding-top: 30px;
+  }
+
+  /* page 1 */
+  /* heading */
+  .container-1 {
+    margin: 10px;
+  }
+
+  .container-2 {
+    margin: 10px;
+  }
+
+  .container-3 img {
+    width: 100%;
+    height: auto;
+  }
+
+  .container-4 {
+    width: 100%;
+    padding: 5px;
+    gap: 4px;
+  }
+
+  .container-4 img {
+    width: 40px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+
+  .sub {
+    margin-left: 10px;
+  }
+
+  .container-5 img {
+    height: 30px;
+    width: 30px;
+  }
+
+  .download-icon,
+  .play-icon {
+    margin: 10px;
+  }
+
+  .container-6 img {
+    height: 20px;
+    width: 30px;
+  }
+
+  .container-6 {
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-style: groove;
+    border-radius: 10px;
+    border-color: rgb(43, 35, 35);
+    margin-top: 20px;
+    font-size: 12px;
+    gap: 20px;
+  }
+
+  .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .duration,
+  .title-1 {
+    margin-top: 10px;
+  }
+
+  /* Albums */
+  .container-7 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container-9 {
+    min-width: auto;
+    margin-bottom: 20px;
+  }
+
+  /* album */
+  .row {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .col-1 {
+    min-width: auto;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .col-1 img {
+    width: 100%;
+    height: auto;
+  }
+
+  .col-1 h2 {
+    padding: 7px;
+    font-size: 20px;
+  }
+
+  .btn {
+    padding: 5px;
+    font-size: 14px;
+  }
+}

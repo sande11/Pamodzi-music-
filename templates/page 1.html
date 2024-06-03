@@ -1,0 +1,137 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="{% static 'PAMODZI.css' %}" rel="stylesheet" type="text/css" />
+    <title>Pamodzi</title>
+
+    <script>
+      function downloadFile(URL, filename) {
+        let link = document.createElement("a");
+        link.setAttribute("download", filename);
+        link.href = URL;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="logo">PAMODZI</div>
+
+      <ul class="nav-links">
+        <input type="checkbox" id="checkbox_toggle" />
+        <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+        <div class="menu">
+          <li><a href="{% url 'home'  %}">HOME</a></li>
+          <li><a href="{% url 'events' %}">EVENTS</a></li>
+          <li><a href="{% url 'about' %}">ABOUT</a></li>
+          <li class="contact">
+            <a href="/">CONTACT</a>
+            <!-- DROPDOWN MENU -->
+            <ul class="dropdown">
+              <li><a href="/">EMAIL</a></li>
+              <li><a href="/">FACEBOOK</a></li>
+              <li><a href="/">INSTAGRAM</a></li>
+              <li><a href="/">TWITTER</a></li>
+            </ul>
+          </li>
+        </div>
+      </ul>
+    </nav>
+    <!-- NEW RELEASES -->
+    <div class="container-1">
+      <h1 class="heading">New Releases</h1>
+    </div>
+    <div class="container-2">
+      <div class="container-3">
+        {% for NewRelease in newreleases %} {% if NewRelease.logo %}
+        <img src="{{NewRelease.logo.url}}" alt="album cover" />
+        {% endif %}
+        <div class="container-4">
+          <h1 class="title">Title:</h1>
+          <h1 class="sub">{{NewRelease.title}}</h1>
+        </div>
+        <div class="container-4">
+          <img src="{% static 'Assets/repeat.png' %}" alt="durayion icon" />
+          <h1 class="sub">{{NewRelease.downloads}}</h1>
+          <img src="{% static 'Assets/folder.png' %}" alt="size" />
+          <h1>{{NewRelease.size}}</h1>
+        </div>
+
+        <div class="container-5">
+          <a href=""
+            ><img
+              class="play-icon"
+              src="{% static 'Assets/play-button-png-12808.png' %}"
+              alt="play"
+          /></a>
+            <button>
+              <a
+                href="{{NewRelease.NewSong.url}}"
+                download="{{NewRelease.NewSong.url}}"
+                ><img
+                  class="download-icon"
+                  src="{% static 'Assets/icons8-download-24.png' %}"
+              /></a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <!-- SINGLES -->
+    <div class="container-1">
+      <h1 class="heading">Singles</h1>
+    </div>
+
+    {% for Single in singles %}
+    <div class="container-6">
+      <a href=""
+        ><img
+          class="play-icon"
+          src="{% static 'Assets/play-button-png-12808.png' %}"
+          alt="download icon"
+      /></a>
+      <h1 class="title-1">{{Single.Singletitle}}</h1>
+      <span class="right">
+        <a href=" {{Single.single.url}} " download
+          ><img
+            class="download-icon"
+            src="{% static 'Assets/icons8-download-24.png' %}"
+        /></a>
+        <h1 class="duration">{{Single.duration}}</h1>
+      </span>
+    </div>
+    {% endfor %}
+
+    <!-- ALBUMS -->
+
+    <div class="container-1">
+      <h1 class="heading">Albums</h1>
+    </div>
+
+    <div class="small-container">
+      <div class="row">
+        {% for Albumlist in albumlists %}
+        <div class="col-1">
+          {% if Albumlist.albumArt %}
+          <a href="{% url 'albums' %}"
+            ><img src="{{Albumlist.albumArt.url}}" alt="Album cover"
+          /></a>
+          {% endif %}
+          <a href="{% url 'albums' %}"><h2>{{Albumlist.albumTitle}}</h2></a>
+          <a
+            href="{{Albumlist.albumzip.url}}"
+            download="{{Albumlist.albumzip.url}}"
+          >
+            <span class="btn">Download Zip</span>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>

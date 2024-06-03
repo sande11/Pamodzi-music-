@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'PAMODZI.css' %}" rel="stylesheet" type="text/css">
+    <title>Pamodzi</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">PAMODZI</div>
+
+        <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+            <div class="menu">
+                <li><a href="{% url 'home'  %}">HOME</a></li>
+                <li><a href="{% url 'events' %}">EVENTS</a></li>
+                <li><a href="{% url 'about' %}">ABOUT</a></li>
+                <li class="contact">
+                    <a href="{% static '/' %}">CONTACT</a>
+                    <!-- DROPDOWN MENU -->
+                    <ul class="dropdown">
+                        <li><a href="{% static '/' %}">EMAIL</a></li>
+                        <li><a href="{% static '/' %}">FACEBOOK</a></li>
+                        <li><a href="{% static '/' %}">INSTAGRAM</a></li>
+                        <li><a href="{% static '/' %}">TWITTER</a></li>
+                    </ul>
+                </li>
+            </div>
+        </ul>
+    </nav>
+    
+    <div>
+        <img src="" alt="artist image">
+    </div>
+</body>
